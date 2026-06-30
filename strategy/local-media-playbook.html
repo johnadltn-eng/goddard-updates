@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Goddard Wesley Chapel — Local Media Strategy</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #0d0d0d;
+    color: #d4d4d4;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    padding: 60px 20px;
+  }
+
+  .page { max-width: 700px; margin: 0 auto; }
+
+  .label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #555;
+    margin-bottom: 16px;
+  }
+
+  .title-block { margin-bottom: 60px; }
+
+  .title-block h1 {
+    font-size: 44px;
+    font-weight: 800;
+    line-height: 1.1;
+    color: #fff;
+    margin: 8px 0 12px;
+  }
+
+  .title-block .subtitle { color: #555; font-size: 15px; }
+
+  .section { margin-bottom: 40px; }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #555;
+    margin-bottom: 20px;
+  }
+
+  .card {
+    background: #1a1a1a;
+    border-radius: 10px;
+    padding: 26px 30px;
+    margin-bottom: 10px;
+    color: #bbb;
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  .card strong { color: #e5e5e5; font-weight: 600; }
+  .card .highlight { color: #4ade80; font-weight: 600; }
+  .card .highlight-blue { color: #60a5fa; font-weight: 600; }
+  .card .highlight-orange { color: #fbbf24; font-weight: 600; }
+
+  /* pillar cards */
+  .pillar {
+    background: #1a1a1a;
+    border-radius: 10px;
+    padding: 22px 28px;
+    margin-bottom: 10px;
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+  }
+
+  .pillar .p-num {
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 1;
+    flex-shrink: 0;
+    width: 36px;
+  }
+
+  .pillar .p-body {}
+  .pillar .p-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #e5e5e5;
+    margin-bottom: 4px;
+  }
+  .pillar .p-desc { font-size: 14px; color: #777; line-height: 1.6; }
+  .pillar .p-example {
+    font-size: 13px;
+    color: #555;
+    margin-top: 6px;
+    font-style: italic;
+  }
+
+  /* two column */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  .col-card {
+    background: #1a1a1a;
+    border-radius: 10px;
+    padding: 22px 24px;
+  }
+
+  .col-card .col-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .col-card ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .col-card ul li {
+    font-size: 14px;
+    padding: 7px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    color: #bbb;
+    display: flex;
+    gap: 8px;
+  }
+
+  .col-card ul li:last-child { border-bottom: none; }
+
+  .col-card ul li::before { flex-shrink: 0; }
+
+  .before li::before { content: "✕"; color: #f87171; }
+  .after li::before { content: "✓"; color: #4ade80; }
+
+  /* proof card */
+  .proof {
+    background: #111;
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 10px;
+    padding: 22px 28px;
+    margin-bottom: 10px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .proof .p-stat {
+    font-size: 36px;
+    font-weight: 800;
+    line-height: 1;
+    flex-shrink: 0;
+    color: #fbbf24;
+  }
+
+  .proof .p-context { font-size: 14px; color: #777; line-height: 1.5; }
+  .proof .p-context strong { color: #bbb; display: block; margin-bottom: 2px; }
+
+  /* action items */
+  .ask-card {
+    background: #1a1a1a;
+    border-radius: 10px;
+    padding: 26px 30px;
+  }
+
+  .ask-list { list-style: none; padding: 0; }
+
+  .ask-list li {
+    display: flex;
+    gap: 14px;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    font-size: 15px;
+    color: #bbb;
+    align-items: flex-start;
+  }
+
+  .ask-list li:last-child { border-bottom: none; }
+
+  .ask-num {
+    font-size: 11px;
+    font-weight: 700;
+    color: #60a5fa;
+    background: #0c1f3d;
+    border-radius: 4px;
+    padding: 3px 8px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    letter-spacing: 0.05em;
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid rgba(255,255,255,0.07);
+    margin: 44px 0;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- TITLE -->
+  <div class="title-block">
+    <div class="label">Goddard School Wesley Chapel · Growth Strategy</div>
+    <h1>Become the Account Wesley Chapel Parents Actually Follow</h1>
+    <div class="subtitle">Presented by John Dalton & Ohm Patel · June 2026</div>
+  </div>
+
+  <hr>
+
+  <!-- THE IDEA -->
+  <div class="section">
+    <div class="section-label">The Idea</div>
+    <div class="card">
+      Most school social media pages post about the school. <strong>Parents don't follow accounts that only talk about themselves.</strong> They follow accounts that make their lives easier — that tell them what's happening in their neighborhood, where to take their kids, what to know this week.
+      <br><br>
+      <span class="highlight">The play is simple:</span> make the Goddard Wesley Chapel account the most useful thing a local parent follows. Not just a school page — a local resource. That trust is what turns followers into enrollment inquiries.
+    </div>
+    <div class="card">
+      There's proof this works. <span class="highlight-orange">Only in Naples 239</span> built a 500K+ following doing exactly this for Naples, FL — local news, community content, business collabs. They're not a school. But the model is the same: <strong>become the account people check because it tells them something useful about where they live.</strong>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- PROOF -->
+  <div class="section">
+    <div class="section-label">It's Already Working Here</div>
+
+    <div class="proof">
+      <div class="p-stat">~1K</div>
+      <div class="p-context">
+        <strong>Happy Feet collab post — views in one day</strong>
+        Tagged a local company. Their audience saw us. That's the model.
+      </div>
+    </div>
+
+    <div class="proof">
+      <div class="p-stat" style="color:#4ade80;">500K+</div>
+      <div class="p-context">
+        <strong>Only in Naples 239 — Instagram following</strong>
+        Built entirely on local news, community content, and business collabs. No ad budget. Just consistency and local relevance.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- CONTENT PILLARS -->
+  <div class="section">
+    <div class="section-label">What We Post — 4 Content Pillars</div>
+
+    <div class="pillar">
+      <div class="p-num" style="color:#60a5fa;">1</div>
+      <div class="p-body">
+        <div class="p-title">Wesley Chapel Local News</div>
+        <div class="p-desc">Daily carousel posts about what's happening in Wesley Chapel — events, local spots, family activities, community news. AI-powered, takes 15 minutes a day.</div>
+        <div class="p-example">→ "3 Wesley Chapel spots your toddler will love this week"</div>
+      </div>
+    </div>
+
+    <div class="pillar">
+      <div class="p-num" style="color:#4ade80;">2</div>
+      <div class="p-body">
+        <div class="p-title">Local Business Collabs</div>
+        <div class="p-desc">Partner with Wesley Chapel businesses that serve families. They get exposure to our parent audience. We get reach when they share. No cost, mutual value.</div>
+        <div class="p-example">→ Happy Feet, Topspin Tampa, local kids' activity companies</div>
+      </div>
+    </div>
+
+    <div class="pillar">
+      <div class="p-num" style="color:#fbbf24;">3</div>
+      <div class="p-body">
+        <div class="p-title">High-Performing Reels</div>
+        <div class="p-desc">Replicate what's already working at other Goddard schools. One monthly batch shoot (3–4 reels). No reinventing — just execute what the data says works.</div>
+        <div class="p-example">→ Classroom moments, teacher spotlights, milestone posts</div>
+      </div>
+    </div>
+
+    <div class="pillar">
+      <div class="p-num" style="color:#a78bfa;">4</div>
+      <div class="p-body">
+        <div class="p-title">Community Engagement</div>
+        <div class="p-desc">Show up in Wesley Chapel Facebook groups as a helpful presence. Answer questions, spark conversations, position Goddard as a trusted community voice — not an ad.</div>
+        <div class="p-example">→ "What are the best schools in Wesley Chapel?" → we answer</div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- BEFORE / AFTER -->
+  <div class="section">
+    <div class="section-label">What Changes</div>
+    <div class="two-col">
+      <div class="col-card">
+        <div class="col-label" style="color:#f87171;">Old Approach</div>
+        <ul class="before">
+          <li>Posts only about the school</li>
+          <li>Inconsistent cadence</li>
+          <li>Approval delays slow everything</li>
+          <li>No way to track where leads come from</li>
+          <li>Competing with every other Goddard page</li>
+        </ul>
+      </div>
+      <div class="col-card">
+        <div class="col-label" style="color:#4ade80;">New Approach</div>
+        <ul class="after">
+          <li>Local resource parents actually follow</li>
+          <li>Daily content, mostly pre-approved</li>
+          <li>Streamlined — one revision max</li>
+          <li>"How did you hear about us?" at intake</li>
+          <li>Only Wesley Chapel account doing this</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- WHAT WE NEED -->
+  <div class="section">
+    <div class="section-label">What We Need From You</div>
+    <div class="ask-card">
+      <ul class="ask-list">
+        <li>
+          <span class="ask-num">01</span>
+          Add "How did you hear about us?" to the intake process — one question, tells us everything about what's working
+        </li>
+        <li>
+          <span class="ask-num">02</span>
+          Pre-approve the news carousel format — these posts don't feature students or staff, so they don't need case-by-case review
+        </li>
+        <li>
+          <span class="ask-num">03</span>
+          Identify one teacher willing to film one reel per week — Ohm will handle coaching and direction
+        </li>
+        <li>
+          <span class="ask-num">04</span>
+          Trust the process for 60 days — organic growth takes time, but local relevance compounds fast
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
