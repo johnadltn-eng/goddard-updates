@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Goddard Carousel — Canva Template Spec</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #0d0d0d;
+    color: #d4d4d4;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    padding: 60px 20px;
+  }
+  .page { max-width: 800px; margin: 0 auto; }
+
+  .label {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; color: #555; margin-bottom: 16px;
+  }
+  .title-block { margin-bottom: 60px; }
+  .title-block h1 { font-size: 40px; font-weight: 800; color: #fff; margin: 8px 0 10px; }
+  .title-block .subtitle { color: #555; font-size: 15px; }
+
+  hr { border: none; border-top: 1px solid rgba(255,255,255,0.07); margin: 44px 0; }
+
+  .section-label {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; color: #555; margin-bottom: 20px;
+  }
+
+  /* slide previews */
+  .slides-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+
+  .slide-preview {
+    aspect-ratio: 1;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    background: #111;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+
+  /* slide 1 - hook */
+  .slide-1 {
+    background: #1B2F4E;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    text-align: center;
+  }
+  .slide-1 .s-logo {
+    width: 36px; height: 36px;
+    background: white;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .slide-1 .s-logo img { width: 100%; height: 100%; object-fit: cover; }
+  .slide-1 .s-eyebrow {
+    font-size: 7px; font-weight: 700; letter-spacing: 0.15em;
+    text-transform: uppercase; color: rgba(255,255,255,0.5);
+    margin-bottom: 6px;
+  }
+  .slide-1 .s-headline {
+    font-size: 12px; font-weight: 900; color: #fff;
+    line-height: 1.2; text-transform: uppercase;
+  }
+  .slide-1 .s-headline span { color: #7EB8F7; }
+
+  /* slides 2-4 - location */
+  .slide-loc {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0;
+    position: relative;
+  }
+  .slide-loc .photo-bg {
+    position: absolute; inset: 0;
+    background: linear-gradient(160deg, #2a4060 0%, #1a2d45 100%);
+  }
+  .slide-loc .photo-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.1) 55%, transparent 100%);
+  }
+  .slide-loc .s-logo-sm {
+    position: absolute; top: 8px; left: 8px;
+    width: 22px; height: 22px;
+    border-radius: 50%; overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.4);
+    z-index: 2;
+  }
+  .slide-loc .s-logo-sm img { width: 100%; height: 100%; object-fit: cover; }
+  .slide-loc .text-block {
+    position: relative; z-index: 2;
+    padding: 8px 10px 10px;
+  }
+  .slide-loc .s-tag {
+    font-size: 6px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: rgba(255,255,255,0.5);
+    margin-bottom: 3px;
+  }
+  .slide-loc .s-name {
+    font-size: 11px; font-weight: 900; color: #7EB8F7;
+    text-transform: uppercase; line-height: 1.1; margin-bottom: 2px;
+  }
+  .slide-loc .s-desc {
+    font-size: 7px; color: rgba(255,255,255,0.7); line-height: 1.3;
+  }
+
+  /* slide 5 - CTA */
+  .slide-cta {
+    background: #1B2F4E;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 14px; text-align: center;
+  }
+  .slide-cta .s-logo {
+    width: 28px; height: 28px; border-radius: 50%;
+    overflow: hidden; margin-bottom: 8px;
+  }
+  .slide-cta .s-logo img { width: 100%; height: 100%; object-fit: cover; }
+  .slide-cta .s-cta {
+    font-size: 9px; font-weight: 900; color: #fff;
+    text-transform: uppercase; line-height: 1.3; margin-bottom: 6px;
+  }
+  .slide-cta .s-sub { font-size: 7px; color: rgba(255,255,255,0.4); }
+
+  /* spec cards */
+  .spec-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .spec-card {
+    background: #1a1a1a;
+    border-radius: 10px;
+    padding: 20px 24px;
+  }
+  .spec-card .spec-title {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: #555; margin-bottom: 14px;
+  }
+  .spec-row {
+    display: flex; justify-content: space-between;
+    align-items: flex-start; padding: 7px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    font-size: 13px;
+  }
+  .spec-row:last-child { border-bottom: none; }
+  .spec-row .s-key { color: #666; }
+  .spec-row .s-val { color: #e5e5e5; font-weight: 500; text-align: right; max-width: 55%; }
+
+  /* color swatches */
+  .swatch-row { display: flex; gap: 10px; margin-bottom: 10px; }
+  .swatch {
+    display: flex; align-items: center; gap: 10px;
+    background: #1a1a1a; border-radius: 8px; padding: 12px 16px; flex: 1;
+  }
+  .swatch .dot { width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0; }
+  .swatch .sw-info {}
+  .swatch .sw-name { font-size: 13px; font-weight: 600; color: #e5e5e5; }
+  .swatch .sw-hex { font-size: 12px; color: #555; }
+
+  /* step list */
+  .step-card {
+    background: #1a1a1a; border-radius: 10px;
+    padding: 24px 28px;
+  }
+  .step-list { list-style: none; padding: 0; }
+  .step-list li {
+    display: flex; gap: 14px; padding: 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    font-size: 14px; color: #bbb; align-items: flex-start;
+  }
+  .step-list li:last-child { border-bottom: none; }
+  .step-num {
+    font-size: 11px; font-weight: 700; color: #60a5fa;
+    background: #0c1f3d; border-radius: 4px;
+    padding: 3px 8px; flex-shrink: 0; margin-top: 1px;
+  }
+  .step-list strong { color: #e5e5e5; }
+
+  .note-card {
+    background: #0f2d1a; border-radius: 10px;
+    padding: 18px 24px; font-size: 14px; color: #4ade80;
+    margin-top: 10px;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="title-block">
+    <div class="label">Goddard Wesley Chapel · Carousel System</div>
+    <h1>Canva Template Spec</h1>
+    <div class="subtitle">Build this once. Use it every day.</div>
+  </div>
+
+  <hr>
+
+  <!-- SLIDE PREVIEWS -->
+  <div class="section-label">What Each Slide Looks Like</div>
+  <div class="slides-row">
+
+    <!-- Slide 1: Hook -->
+    <div class="slide-preview slide-1">
+      <div class="s-logo">
+        <img src="../Goddard-logo.png" alt="Goddard">
+      </div>
+      <div class="s-eyebrow">Wesley Chapel</div>
+      <div class="s-headline">3 SPOTS YOUR <span>TODDLER</span> WILL LOVE THIS WEEK</div>
+    </div>
+
+    <!-- Slide 2: Location -->
+    <div class="slide-preview slide-loc">
+      <div class="photo-bg"></div>
+      <div class="photo-overlay"></div>
+      <div class="s-logo-sm"><img src="../Goddard-logo.png" alt="G"></div>
+      <div class="text-block">
+        <div class="s-tag">Local Pick · 01</div>
+        <div class="s-name">PopStroke</div>
+        <div class="s-desc">Mini golf + playground + ice cream. Book weekday tee times.</div>
+      </div>
+    </div>
+
+    <!-- Slide 3: Location -->
+    <div class="slide-preview slide-loc">
+      <div class="photo-bg" style="background:linear-gradient(160deg,#1a3a4a 0%,#112233 100%)"></div>
+      <div class="photo-overlay"></div>
+      <div class="s-logo-sm"><img src="../Goddard-logo.png" alt="G"></div>
+      <div class="text-block">
+        <div class="s-tag">Local Pick · 02</div>
+        <div class="s-name">Epperson Lagoon</div>
+        <div class="s-desc">7 acres of crystal-clear water. Your kid will think you're the coolest.</div>
+      </div>
+    </div>
+
+    <!-- Slide 4: Location -->
+    <div class="slide-preview slide-loc">
+      <div class="photo-bg" style="background:linear-gradient(160deg,#1a3020 0%,#0f1f10 100%)"></div>
+      <div class="photo-overlay"></div>
+      <div class="s-logo-sm"><img src="../Goddard-logo.png" alt="G"></div>
+      <div class="text-block">
+        <div class="s-tag">Local Pick · 03</div>
+        <div class="s-name">Cypress Creek</div>
+        <div class="s-desc">Free, shaded trails. Wide enough for a stroller.</div>
+      </div>
+    </div>
+
+    <!-- Slide 5: CTA -->
+    <div class="slide-preview slide-cta">
+      <div class="s-logo"><img src="../Goddard-logo.png" alt="G"></div>
+      <div class="s-cta">WHICH ONE IS YOUR FAVORITE?</div>
+      <div class="s-sub">Drop it in the comments below</div>
+    </div>
+
+  </div>
+
+  <hr>
+
+  <!-- SPECS -->
+  <div class="section-label">Canvas Specs</div>
+  <div class="spec-grid">
+    <div class="spec-card">
+      <div class="spec-title">Dimensions</div>
+      <div class="spec-row"><span class="s-key">Format</span><span class="s-val">Instagram Carousel Post</span></div>
+      <div class="spec-row"><span class="s-key">Size</span><span class="s-val">1080 × 1080 px</span></div>
+      <div class="spec-row"><span class="s-key">Slides per post</span><span class="s-val">5 (1 hook + 3 spots + 1 CTA)</span></div>
+      <div class="spec-row"><span class="s-key">Logo size</span><span class="s-val">80–100 px, top-left corner</span></div>
+      <div class="spec-row"><span class="s-key">Safe zone</span><span class="s-val">40 px margin all sides</span></div>
+    </div>
+    <div class="spec-card">
+      <div class="spec-title">Typography</div>
+      <div class="spec-row"><span class="s-key">Headline font</span><span class="s-val">Montserrat ExtraBold or Impact</span></div>
+      <div class="spec-row"><span class="s-key">Headline size</span><span class="s-val">60–80 pt (fill bottom third)</span></div>
+      <div class="spec-row"><span class="s-key">Headline case</span><span class="s-val">ALL CAPS</span></div>
+      <div class="spec-row"><span class="s-key">Eyebrow font</span><span class="s-val">Montserrat SemiBold</span></div>
+      <div class="spec-row"><span class="s-key">Eyebrow size</span><span class="s-val">14 pt, tracked wide</span></div>
+    </div>
+  </div>
+
+  <!-- COLORS -->
+  <div class="section-label">Brand Colors</div>
+  <div class="swatch-row">
+    <div class="swatch">
+      <div class="dot" style="background:#1B2F4E;border:1px solid rgba(255,255,255,0.1)"></div>
+      <div class="sw-info">
+        <div class="sw-name">Goddard Navy</div>
+        <div class="sw-hex">#1B2F4E — backgrounds, hook slide, CTA slide</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="dot" style="background:#ffffff;border:1px solid rgba(255,255,255,0.1)"></div>
+      <div class="sw-info">
+        <div class="sw-name">White</div>
+        <div class="sw-hex">#FFFFFF — main headline text, body text</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="dot" style="background:#7EB8F7"></div>
+      <div class="sw-info">
+        <div class="sw-name">Sky Blue Accent</div>
+        <div class="sw-hex">#7EB8F7 — accent words in headline, location names</div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- SLIDE-BY-SLIDE BUILD GUIDE -->
+  <div class="section-label">How to Build Each Slide in Canva</div>
+  <div class="step-card">
+    <ul class="step-list">
+      <li><span class="step-num">S1</span><div><strong>Hook slide:</strong> Navy (#1B2F4E) background. Logo centered-top. "WESLEY CHAPEL" eyebrow in white 30% opacity. Big ALL CAPS headline — key word(s) in sky blue, rest in white.</div></li>
+      <li><span class="step-num">S2–4</span><div><strong>Location slides:</strong> Full-bleed photo background. Add a dark gradient overlay (black, 0% opacity top → 80% opacity bottom). Logo top-left, 80px. Location name in sky blue ALL CAPS bold. One-line description in white below.</div></li>
+      <li><span class="step-num">S5</span><div><strong>CTA slide:</strong> Navy background. Logo centered. "WHICH ONE IS YOUR FAVORITE?" in white ALL CAPS bold. "Drop it in the comments below" in white 40% opacity below.</div></li>
+    </ul>
+  </div>
+
+  <div class="note-card">
+    Pro tip: Build all 5 slides once as a Canva template. Each day, duplicate the template, swap the photos and headline text only. Everything else stays the same. Should take under 10 minutes.
+  </div>
+
+  <hr>
+
+  <!-- PHOTO SOURCING -->
+  <div class="section-label">Where to Get Photos</div>
+  <div class="step-card">
+    <ul class="step-list">
+      <li><span class="step-num">01</span><div><strong>Google Images:</strong> Search "[location name] Wesley Chapel FL" → Tools → Usage rights → Creative Commons. Fast, usually enough.</div></li>
+      <li><span class="step-num">02</span><div><strong>Unsplash.com:</strong> Free high-res photos. Good for generic nature/outdoor spots.</div></li>
+      <li><span class="step-num">03</span><div><strong>The business's own Instagram:</strong> Screenshot and credit them in the caption — they'll usually appreciate the tag.</div></li>
+      <li><span class="step-num">04</span><div><strong>Ohm's footage:</strong> If a spot has been visited, pull a still frame from video.</div></li>
+    </ul>
+  </div>
+
+</div>
+</body>
+</html>
