@@ -14,190 +14,207 @@
     line-height: 1.6;
     padding: 60px 20px;
   }
-  .page { max-width: 800px; margin: 0 auto; }
+  .page { max-width: 820px; margin: 0 auto; }
 
-  .label {
-    font-size: 11px; font-weight: 600; letter-spacing: 0.12em;
-    text-transform: uppercase; color: #555; margin-bottom: 16px;
-  }
+  .label { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #555; margin-bottom: 16px; }
   .title-block { margin-bottom: 60px; }
   .title-block h1 { font-size: 40px; font-weight: 800; color: #fff; margin: 8px 0 10px; }
   .title-block .subtitle { color: #555; font-size: 15px; }
-
   hr { border: none; border-top: 1px solid rgba(255,255,255,0.07); margin: 44px 0; }
+  .section-label { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #555; margin-bottom: 20px; }
 
-  .section-label {
-    font-size: 11px; font-weight: 600; letter-spacing: 0.12em;
-    text-transform: uppercase; color: #555; margin-bottom: 20px;
+  /* reference image */
+  .reference-row {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 24px;
+    align-items: start;
+    margin-bottom: 32px;
   }
+  .reference-row img {
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .ref-notes { display: flex; flex-direction: column; gap: 10px; }
+  .ref-note {
+    background: #1a1a1a;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 13px;
+    color: #bbb;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .ref-note .rn-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #FFC72C;
+    flex-shrink: 0;
+    padding-top: 2px;
+    min-width: 70px;
+  }
+  .ref-note strong { color: #e5e5e5; }
 
   /* slide previews */
   .slides-row {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
-    margin-bottom: 32px;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin-bottom: 12px;
   }
 
-  .slide-preview {
-    aspect-ratio: 1;
+  .slide-wrap { display: flex; flex-direction: column; gap: 8px; }
+  .slide-num { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #555; text-align: center; }
+
+  .slide {
+    aspect-ratio: 4/5;
     border-radius: 8px;
-    position: relative;
     overflow: hidden;
-    background: #111;
-    border: 1px solid rgba(255,255,255,0.08);
+    position: relative;
+    border: 1px solid rgba(255,255,255,0.07);
   }
 
-  /* slide 1 - hook */
-  .slide-1 {
+  /* photo zone */
+  .photo-zone {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 57%;
+    overflow: hidden;
+  }
+
+  /* navy panel zone */
+  .navy-zone {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 46%;
+    background: #1B2F4E;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0 10px 8px;
+  }
+
+  /* divider */
+  .divider {
+    position: absolute;
+    top: 54%;
+    left: 0; right: 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 10px;
+    z-index: 3;
+  }
+  .divider-line { flex: 1; height: 1px; background: rgba(255,255,255,0.5); }
+  .divider-text { font-size: 6px; font-weight: 700; letter-spacing: 0.15em; color: rgba(255,255,255,0.8); white-space: nowrap; }
+
+  /* logo */
+  .logo {
+    position: absolute;
+    top: 7px; left: 7px;
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    overflow: hidden;
+    z-index: 2;
+    background: white;
+  }
+  .logo img { width: 100%; height: 100%; object-fit: cover; }
+
+  /* headline */
+  .headline {
+    font-size: 11px;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.15;
+    margin-top: 4px;
+  }
+  .headline .accent { color: #FFC72C; }
+
+  .location-tag {
+    font-size: 6px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 2px;
+  }
+
+  .location-name {
+    font-size: 10px;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.1;
+    margin-bottom: 2px;
+  }
+  .location-name .accent { color: #FFC72C; }
+
+  .location-desc {
+    font-size: 6px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.4;
+  }
+
+  /* CTA slide */
+  .slide-full-navy {
     background: #1B2F4E;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 16px;
+    padding: 14px;
     text-align: center;
   }
-  .slide-1 .s-logo {
-    width: 36px; height: 36px;
-    background: white;
+  .slide-full-navy .cta-logo {
+    width: 28px; height: 28px;
     border-radius: 50%;
-    margin-bottom: 10px;
-    display: flex; align-items: center; justify-content: center;
     overflow: hidden;
+    margin-bottom: 8px;
+    background: white;
   }
-  .slide-1 .s-logo img { width: 100%; height: 100%; object-fit: cover; }
-  .slide-1 .s-eyebrow {
-    font-size: 7px; font-weight: 700; letter-spacing: 0.15em;
-    text-transform: uppercase; color: rgba(255,255,255,0.5);
-    margin-bottom: 6px;
-  }
-  .slide-1 .s-headline {
-    font-size: 12px; font-weight: 900; color: #fff;
-    line-height: 1.2; text-transform: uppercase;
-  }
-  .slide-1 .s-headline span { color: #7EB8F7; }
-
-  /* slides 2-4 - location */
-  .slide-loc {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 0;
-    position: relative;
-  }
-  .slide-loc .photo-bg {
-    position: absolute; inset: 0;
-    background: linear-gradient(160deg, #2a4060 0%, #1a2d45 100%);
-  }
-  .slide-loc .photo-overlay {
-    position: absolute; inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.1) 55%, transparent 100%);
-  }
-  .slide-loc .s-logo-sm {
-    position: absolute; top: 8px; left: 8px;
-    width: 22px; height: 22px;
-    border-radius: 50%; overflow: hidden;
-    border: 1px solid rgba(255,255,255,0.4);
-    z-index: 2;
-  }
-  .slide-loc .s-logo-sm img { width: 100%; height: 100%; object-fit: cover; }
-  .slide-loc .text-block {
-    position: relative; z-index: 2;
-    padding: 8px 10px 10px;
-  }
-  .slide-loc .s-tag {
-    font-size: 6px; font-weight: 700; letter-spacing: 0.12em;
-    text-transform: uppercase; color: rgba(255,255,255,0.5);
-    margin-bottom: 3px;
-  }
-  .slide-loc .s-name {
-    font-size: 11px; font-weight: 900; color: #7EB8F7;
-    text-transform: uppercase; line-height: 1.1; margin-bottom: 2px;
-  }
-  .slide-loc .s-desc {
-    font-size: 7px; color: rgba(255,255,255,0.7); line-height: 1.3;
-  }
-
-  /* slide 5 - CTA */
-  .slide-cta {
-    background: #1B2F4E;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    padding: 14px; text-align: center;
-  }
-  .slide-cta .s-logo {
-    width: 28px; height: 28px; border-radius: 50%;
-    overflow: hidden; margin-bottom: 8px;
-  }
-  .slide-cta .s-logo img { width: 100%; height: 100%; object-fit: cover; }
-  .slide-cta .s-cta {
+  .slide-full-navy .cta-logo img { width: 100%; height: 100%; object-fit: cover; }
+  .slide-full-navy .cta-text {
     font-size: 9px; font-weight: 900; color: #fff;
-    text-transform: uppercase; line-height: 1.3; margin-bottom: 6px;
+    line-height: 1.3; margin-bottom: 4px;
   }
-  .slide-cta .s-sub { font-size: 7px; color: rgba(255,255,255,0.4); }
+  .slide-full-navy .cta-text .accent { color: #FFC72C; }
+  .slide-full-navy .cta-sub { font-size: 6px; color: rgba(255,255,255,0.35); }
 
-  /* spec cards */
-  .spec-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    margin-bottom: 10px;
-  }
-  .spec-card {
-    background: #1a1a1a;
-    border-radius: 10px;
-    padding: 20px 24px;
-  }
-  .spec-card .spec-title {
-    font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
-    text-transform: uppercase; color: #555; margin-bottom: 14px;
-  }
-  .spec-row {
-    display: flex; justify-content: space-between;
-    align-items: flex-start; padding: 7px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-    font-size: 13px;
-  }
+  /* photo placeholders */
+  .ph-popstroke { background: linear-gradient(180deg, #1a2535 0%, #2a3a50 100%); }
+  .ph-lagoon { background: linear-gradient(180deg, #0d2535 0%, #1a3a50 100%); }
+  .ph-cypress { background: linear-gradient(180deg, #0d2010 0%, #1a3520 100%); }
+  .ph-text { display: flex; align-items: center; justify-content: center; height: 100%; font-size: 7px; color: rgba(255,255,255,0.2); font-style: italic; }
+
+  /* spec tables */
+  .spec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+  .spec-card { background: #1a1a1a; border-radius: 10px; padding: 20px 24px; }
+  .spec-card .spec-title { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #555; margin-bottom: 14px; }
+  .spec-row { display: flex; justify-content: space-between; align-items: flex-start; padding: 7px 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 13px; }
   .spec-row:last-child { border-bottom: none; }
   .spec-row .s-key { color: #666; }
   .spec-row .s-val { color: #e5e5e5; font-weight: 500; text-align: right; max-width: 55%; }
 
-  /* color swatches */
+  /* swatches */
   .swatch-row { display: flex; gap: 10px; margin-bottom: 10px; }
-  .swatch {
-    display: flex; align-items: center; gap: 10px;
-    background: #1a1a1a; border-radius: 8px; padding: 12px 16px; flex: 1;
-  }
+  .swatch { display: flex; align-items: center; gap: 10px; background: #1a1a1a; border-radius: 8px; padding: 12px 16px; flex: 1; }
   .swatch .dot { width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0; }
-  .swatch .sw-info {}
   .swatch .sw-name { font-size: 13px; font-weight: 600; color: #e5e5e5; }
   .swatch .sw-hex { font-size: 12px; color: #555; }
 
   /* step list */
-  .step-card {
-    background: #1a1a1a; border-radius: 10px;
-    padding: 24px 28px;
-  }
+  .step-card { background: #1a1a1a; border-radius: 10px; padding: 24px 28px; margin-bottom: 10px; }
   .step-list { list-style: none; padding: 0; }
-  .step-list li {
-    display: flex; gap: 14px; padding: 12px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-    font-size: 14px; color: #bbb; align-items: flex-start;
-  }
+  .step-list li { display: flex; gap: 14px; padding: 13px 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 14px; color: #bbb; align-items: flex-start; }
   .step-list li:last-child { border-bottom: none; }
-  .step-num {
-    font-size: 11px; font-weight: 700; color: #60a5fa;
-    background: #0c1f3d; border-radius: 4px;
-    padding: 3px 8px; flex-shrink: 0; margin-top: 1px;
-  }
+  .step-num { font-size: 11px; font-weight: 700; color: #60a5fa; background: #0c1f3d; border-radius: 4px; padding: 3px 8px; flex-shrink: 0; margin-top: 1px; }
   .step-list strong { color: #e5e5e5; }
 
-  .note-card {
-    background: #0f2d1a; border-radius: 10px;
-    padding: 18px 24px; font-size: 14px; color: #4ade80;
-    margin-top: 10px;
-  }
+  .note-card { background: #0f2d1a; border-radius: 10px; padding: 18px 24px; font-size: 14px; color: #4ade80; margin-top: 10px; }
 </style>
 </head>
 <body>
@@ -206,65 +223,108 @@
   <div class="title-block">
     <div class="label">Goddard Wesley Chapel · Carousel System</div>
     <h1>Canva Template Spec</h1>
-    <div class="subtitle">Build this once. Use it every day.</div>
+    <div class="subtitle">Build this once in Canva. Duplicate it every morning.</div>
+  </div>
+
+  <hr>
+
+  <!-- REFERENCE -->
+  <div class="section-label">The Design (Your Mock + System Merged)</div>
+  <div class="reference-row">
+    <img src="MockExampleGdrd.png" alt="Goddard mock design">
+    <div class="ref-notes">
+      <div class="ref-note">
+        <span class="rn-label">Layout</span>
+        <span>Photo fills top <strong>55%</strong>. Solid navy panel fills bottom <strong>45%</strong>. Clean split — no gradient needed.</span>
+      </div>
+      <div class="ref-note">
+        <span class="rn-label">Divider</span>
+        <span><strong>"GODDARD NEWS"</strong> label centered between two horizontal lines. Sits right at the photo/panel border. Branded, clean, instantly recognizable.</span>
+      </div>
+      <div class="ref-note">
+        <span class="rn-label">Logo</span>
+        <span>Circular Goddard logo, top-left. White background behind it so it pops on any photo. Size: ~90px.</span>
+      </div>
+      <div class="ref-note">
+        <span class="rn-label">Headline</span>
+        <span>Large bold mixed-case. <strong>White</strong> for most words. <strong style="color:#FFC72C;">Yellow (#FFC72C)</strong> for the key word or phrase. Text shadow for readability.</span>
+      </div>
+      <div class="ref-note">
+        <span class="rn-label">Font</span>
+        <span>Heavy weight — <strong>Montserrat ExtraBold</strong> or <strong>Anton</strong> in Canva. Anton is free and matches the Naples style almost exactly.</span>
+      </div>
+    </div>
   </div>
 
   <hr>
 
   <!-- SLIDE PREVIEWS -->
-  <div class="section-label">What Each Slide Looks Like</div>
+  <div class="section-label">5-Slide Structure</div>
   <div class="slides-row">
 
     <!-- Slide 1: Hook -->
-    <div class="slide-preview slide-1">
-      <div class="s-logo">
-        <img src="../Goddard-logo.png" alt="Goddard">
+    <div class="slide-wrap">
+      <div class="slide slide-full-navy" style="aspect-ratio:4/5;">
+        <div class="cta-logo"><img src="../Goddard-logo.png" alt="G"></div>
+        <div class="cta-text" style="font-size:11px;margin-bottom:6px;">3 SPOTS YOUR <span class="accent">TODDLER</span> WILL LOVE THIS WEEK</div>
+        <div class="cta-sub" style="font-size:7px;">Wesley Chapel · Family Guide</div>
       </div>
-      <div class="s-eyebrow">Wesley Chapel</div>
-      <div class="s-headline">3 SPOTS YOUR <span>TODDLER</span> WILL LOVE THIS WEEK</div>
+      <div class="slide-num">Slide 1 — Hook</div>
     </div>
 
-    <!-- Slide 2: Location -->
-    <div class="slide-preview slide-loc">
-      <div class="photo-bg"></div>
-      <div class="photo-overlay"></div>
-      <div class="s-logo-sm"><img src="../Goddard-logo.png" alt="G"></div>
-      <div class="text-block">
-        <div class="s-tag">Local Pick · 01</div>
-        <div class="s-name">PopStroke</div>
-        <div class="s-desc">Mini golf + playground + ice cream. Book weekday tee times.</div>
+    <!-- Slide 2 -->
+    <div class="slide-wrap">
+      <div class="slide">
+        <div class="photo-zone ph-popstroke"><div class="ph-text">PopStroke photo here</div></div>
+        <div class="logo"><img src="../Goddard-logo.png" alt="G"></div>
+        <div class="divider"><div class="divider-line"></div><span class="divider-text">GODDARD NEWS</span><div class="divider-line"></div></div>
+        <div class="navy-zone">
+          <div class="location-tag">Local Pick · 01</div>
+          <div class="location-name"><span class="accent">PopStroke</span></div>
+          <div class="location-desc">Mini golf + playground + ice cream. Book weekday tee times.</div>
+        </div>
       </div>
+      <div class="slide-num">Slide 2 — Spot 1</div>
     </div>
 
-    <!-- Slide 3: Location -->
-    <div class="slide-preview slide-loc">
-      <div class="photo-bg" style="background:linear-gradient(160deg,#1a3a4a 0%,#112233 100%)"></div>
-      <div class="photo-overlay"></div>
-      <div class="s-logo-sm"><img src="../Goddard-logo.png" alt="G"></div>
-      <div class="text-block">
-        <div class="s-tag">Local Pick · 02</div>
-        <div class="s-name">Epperson Lagoon</div>
-        <div class="s-desc">7 acres of crystal-clear water. Your kid will think you're the coolest.</div>
+    <!-- Slide 3 -->
+    <div class="slide-wrap">
+      <div class="slide">
+        <div class="photo-zone ph-lagoon"><div class="ph-text">Epperson Lagoon photo</div></div>
+        <div class="logo"><img src="../Goddard-logo.png" alt="G"></div>
+        <div class="divider"><div class="divider-line"></div><span class="divider-text">GODDARD NEWS</span><div class="divider-line"></div></div>
+        <div class="navy-zone">
+          <div class="location-tag">Local Pick · 02</div>
+          <div class="location-name"><span class="accent">Epperson Lagoon</span></div>
+          <div class="location-desc">7 acres of crystal-clear water. Your kid will think you're the coolest.</div>
+        </div>
       </div>
+      <div class="slide-num">Slide 3 — Spot 2</div>
     </div>
 
-    <!-- Slide 4: Location -->
-    <div class="slide-preview slide-loc">
-      <div class="photo-bg" style="background:linear-gradient(160deg,#1a3020 0%,#0f1f10 100%)"></div>
-      <div class="photo-overlay"></div>
-      <div class="s-logo-sm"><img src="../Goddard-logo.png" alt="G"></div>
-      <div class="text-block">
-        <div class="s-tag">Local Pick · 03</div>
-        <div class="s-name">Cypress Creek</div>
-        <div class="s-desc">Free, shaded trails. Wide enough for a stroller.</div>
+    <!-- Slide 4 -->
+    <div class="slide-wrap">
+      <div class="slide">
+        <div class="photo-zone ph-cypress"><div class="ph-text">Cypress Creek photo</div></div>
+        <div class="logo"><img src="../Goddard-logo.png" alt="G"></div>
+        <div class="divider"><div class="divider-line"></div><span class="divider-text">GODDARD NEWS</span><div class="divider-line"></div></div>
+        <div class="navy-zone">
+          <div class="location-tag">Local Pick · 03</div>
+          <div class="location-name"><span class="accent">Cypress Creek</span></div>
+          <div class="location-desc">Free, shaded trails wide enough for a stroller.</div>
+        </div>
       </div>
+      <div class="slide-num">Slide 4 — Spot 3</div>
     </div>
 
     <!-- Slide 5: CTA -->
-    <div class="slide-preview slide-cta">
-      <div class="s-logo"><img src="../Goddard-logo.png" alt="G"></div>
-      <div class="s-cta">WHICH ONE IS YOUR FAVORITE?</div>
-      <div class="s-sub">Drop it in the comments below</div>
+    <div class="slide-wrap">
+      <div class="slide slide-full-navy" style="aspect-ratio:4/5;">
+        <div class="cta-logo"><img src="../Goddard-logo.png" alt="G"></div>
+        <div class="cta-text">WHICH ONE IS YOUR <span class="accent">FAVORITE?</span></div>
+        <div class="cta-sub">Drop it in the comments below 👇</div>
+      </div>
+      <div class="slide-num">Slide 5 — CTA</div>
     </div>
 
   </div>
@@ -272,23 +332,23 @@
   <hr>
 
   <!-- SPECS -->
-  <div class="section-label">Canvas Specs</div>
+  <div class="section-label">Canva Specs</div>
   <div class="spec-grid">
     <div class="spec-card">
       <div class="spec-title">Dimensions</div>
-      <div class="spec-row"><span class="s-key">Format</span><span class="s-val">Instagram Carousel Post</span></div>
-      <div class="spec-row"><span class="s-key">Size</span><span class="s-val">1080 × 1080 px</span></div>
-      <div class="spec-row"><span class="s-key">Slides per post</span><span class="s-val">5 (1 hook + 3 spots + 1 CTA)</span></div>
-      <div class="spec-row"><span class="s-key">Logo size</span><span class="s-val">80–100 px, top-left corner</span></div>
+      <div class="spec-row"><span class="s-key">Size</span><span class="s-val">1080 × 1350 px (4:5)</span></div>
+      <div class="spec-row"><span class="s-key">Photo zone</span><span class="s-val">Top 55% of frame</span></div>
+      <div class="spec-row"><span class="s-key">Navy panel</span><span class="s-val">Bottom 45% of frame</span></div>
+      <div class="spec-row"><span class="s-key">Logo size</span><span class="s-val">90 px, top-left, 30px from edges</span></div>
       <div class="spec-row"><span class="s-key">Safe zone</span><span class="s-val">40 px margin all sides</span></div>
     </div>
     <div class="spec-card">
       <div class="spec-title">Typography</div>
-      <div class="spec-row"><span class="s-key">Headline font</span><span class="s-val">Montserrat ExtraBold or Impact</span></div>
-      <div class="spec-row"><span class="s-key">Headline size</span><span class="s-val">60–80 pt (fill bottom third)</span></div>
-      <div class="spec-row"><span class="s-key">Headline case</span><span class="s-val">ALL CAPS</span></div>
-      <div class="spec-row"><span class="s-key">Eyebrow font</span><span class="s-val">Montserrat SemiBold</span></div>
-      <div class="spec-row"><span class="s-key">Eyebrow size</span><span class="s-val">14 pt, tracked wide</span></div>
+      <div class="spec-row"><span class="s-key">Headline font</span><span class="s-val">Anton (free in Canva)</span></div>
+      <div class="spec-row"><span class="s-key">Headline size</span><span class="s-val">~90 pt (adjust to fill panel)</span></div>
+      <div class="spec-row"><span class="s-key">Divider label</span><span class="s-val">Montserrat SemiBold, 12 pt</span></div>
+      <div class="spec-row"><span class="s-key">Location name</span><span class="s-val">Anton, 44 pt</span></div>
+      <div class="spec-row"><span class="s-key">Description</span><span class="s-val">Montserrat Regular, 18 pt</span></div>
     </div>
   </div>
 
@@ -297,41 +357,37 @@
   <div class="swatch-row">
     <div class="swatch">
       <div class="dot" style="background:#1B2F4E;border:1px solid rgba(255,255,255,0.1)"></div>
-      <div class="sw-info">
-        <div class="sw-name">Goddard Navy</div>
-        <div class="sw-hex">#1B2F4E — backgrounds, hook slide, CTA slide</div>
-      </div>
+      <div><div class="sw-name">Goddard Navy</div><div class="sw-hex">#1B2F4E — panel background, hook slide, CTA slide</div></div>
     </div>
     <div class="swatch">
-      <div class="dot" style="background:#ffffff;border:1px solid rgba(255,255,255,0.1)"></div>
-      <div class="sw-info">
-        <div class="sw-name">White</div>
-        <div class="sw-hex">#FFFFFF — main headline text, body text</div>
-      </div>
+      <div class="dot" style="background:#FFC72C"></div>
+      <div><div class="sw-name">Yellow Accent</div><div class="sw-hex">#FFC72C — key words in headline, location names</div></div>
     </div>
     <div class="swatch">
-      <div class="dot" style="background:#7EB8F7"></div>
-      <div class="sw-info">
-        <div class="sw-name">Sky Blue Accent</div>
-        <div class="sw-hex">#7EB8F7 — accent words in headline, location names</div>
-      </div>
+      <div class="dot" style="background:#ffffff;border:1px solid rgba(255,255,255,0.15)"></div>
+      <div><div class="sw-name">White</div><div class="sw-hex">#FFFFFF — body text, divider lines</div></div>
     </div>
   </div>
 
   <hr>
 
-  <!-- SLIDE-BY-SLIDE BUILD GUIDE -->
-  <div class="section-label">How to Build Each Slide in Canva</div>
+  <!-- BUILD GUIDE -->
+  <div class="section-label">How to Build in Canva (One Time)</div>
   <div class="step-card">
     <ul class="step-list">
-      <li><span class="step-num">S1</span><div><strong>Hook slide:</strong> Navy (#1B2F4E) background. Logo centered-top. "WESLEY CHAPEL" eyebrow in white 30% opacity. Big ALL CAPS headline — key word(s) in sky blue, rest in white.</div></li>
-      <li><span class="step-num">S2–4</span><div><strong>Location slides:</strong> Full-bleed photo background. Add a dark gradient overlay (black, 0% opacity top → 80% opacity bottom). Logo top-left, 80px. Location name in sky blue ALL CAPS bold. One-line description in white below.</div></li>
-      <li><span class="step-num">S5</span><div><strong>CTA slide:</strong> Navy background. Logo centered. "WHICH ONE IS YOUR FAVORITE?" in white ALL CAPS bold. "Drop it in the comments below" in white 40% opacity below.</div></li>
+      <li><span class="step-num">01</span><div>New design → Custom size → <strong>1080 × 1350 px</strong></div></li>
+      <li><span class="step-num">02</span><div>Add a <strong>full-bleed image placeholder</strong> (top 55%). Lock it as a background layer so photos swap easily.</div></li>
+      <li><span class="step-num">03</span><div>Add a <strong>solid navy rectangle (#1B2F4E)</strong> covering the bottom 45%. No gradient needed.</div></li>
+      <li><span class="step-num">04</span><div>At the photo/panel border: add two horizontal lines in white (50% opacity) with <strong>"GODDARD NEWS"</strong> text centered between them. Group these together.</div></li>
+      <li><span class="step-num">05</span><div>Add the <strong>Goddard logo</strong> top-left. Put a white circle behind it if it doesn't pop on the photo.</div></li>
+      <li><span class="step-num">06</span><div>Inside the navy panel: <strong>location tag</strong> (small, muted), <strong>location name in Anton + yellow</strong>, <strong>one-line description in white</strong>.</div></li>
+      <li><span class="step-num">07</span><div>Duplicate this slide 3 times (for the 3 spots). Build hook and CTA slides separately — navy background only, no photo.</div></li>
+      <li><span class="step-num">08</span><div><strong>Save as a template.</strong> Every morning: duplicate, swap the photo, paste the new text. Done in under 10 minutes.</div></li>
     </ul>
   </div>
 
   <div class="note-card">
-    Pro tip: Build all 5 slides once as a Canva template. Each day, duplicate the template, swap the photos and headline text only. Everything else stays the same. Should take under 10 minutes.
+    Daily workflow: Say "run the carousel" → I give you 3 story options → you pick one → I output all 5 slides copy-paste ready → open Canva template → swap photo + paste text → post.
   </div>
 
   <hr>
@@ -340,10 +396,10 @@
   <div class="section-label">Where to Get Photos</div>
   <div class="step-card">
     <ul class="step-list">
-      <li><span class="step-num">01</span><div><strong>Google Images:</strong> Search "[location name] Wesley Chapel FL" → Tools → Usage rights → Creative Commons. Fast, usually enough.</div></li>
-      <li><span class="step-num">02</span><div><strong>Unsplash.com:</strong> Free high-res photos. Good for generic nature/outdoor spots.</div></li>
-      <li><span class="step-num">03</span><div><strong>The business's own Instagram:</strong> Screenshot and credit them in the caption — they'll usually appreciate the tag.</div></li>
-      <li><span class="step-num">04</span><div><strong>Ohm's footage:</strong> If a spot has been visited, pull a still frame from video.</div></li>
+      <li><span class="step-num">01</span><div><strong>Google Images:</strong> Search "[place name] Wesley Chapel FL" → Tools → Size: Large. Right-click → Save. Fast and usually enough.</div></li>
+      <li><span class="step-num">02</span><div><strong>The business's own Instagram:</strong> Screenshot a good photo and tag them in the caption — they'll appreciate it and often reshare.</div></li>
+      <li><span class="step-num">03</span><div><strong>Unsplash.com:</strong> Free high-res photos for generic outdoor/nature spots.</div></li>
+      <li><span class="step-num">04</span><div><strong>Ohm's footage:</strong> Pull a still frame from video if a spot has been visited.</div></li>
     </ul>
   </div>
 
